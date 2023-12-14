@@ -24,16 +24,16 @@ public class UserPosDAO {
 
 			String sql = "INSERT INTO userposjava(nome, email, cpf, setor)	VALUES (?, ?, ?, ?);";
 			PreparedStatement insert = connection.prepareStatement(sql);
-			insert.setString(2, userposjava.getNome());
-			insert.setString(3, userposjava.getEmail());
-			insert.setString(4, userposjava.getCpf());
-			insert.setString(5, userposjava.getSetor());
+			insert.setString(1, userposjava.getNome());
+			insert.setString(2, userposjava.getEmail());
+			insert.setString(3, userposjava.getCpf());
+			insert.setString(4, userposjava.getSetor());
 			insert.execute();
 			connection.commit();
-			connection.rollback();
+			
 		} catch (Exception e) {
 
-			
+			connection.rollback();
 			e.printStackTrace();
 		}
 	}
